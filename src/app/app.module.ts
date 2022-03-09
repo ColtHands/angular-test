@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CategoryViewComponent } from './category-view/category-view.component';
+import { StoreModule } from '@ngrx/store';
+
+// import simpleReducer from './simpleReducer'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoryViewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // StoreModule.forRoot({ message: simpleReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]
