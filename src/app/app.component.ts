@@ -1,6 +1,7 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { Store, State } from '@ngrx/store';
+import { Component, OnInit, Injectable } from '@angular/core'
+import { Store, State } from '@ngrx/store'
 import { AppStore } from './app.store'
+import { DataService } from './data.service'
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,29 @@ import { AppStore } from './app.store'
   providers: [AppStore]
 })
 export class AppComponent implements OnInit {
-  chuckApi = this.appStore.chuckApi;
+  chuckApi = this.appStore.chuckApi
+  categories = []
 
-  constructor(private appStore: AppStore) {
-  }
+  constructor(
+    private appStore: AppStore,
+    private dataService: DataService
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     console.log('this.appStore.chuchApi3', this.appStore.chuckApi)
-    this.getThreeRandomCategories()
+    const categories = await this.dataService.getCategories()
+    // TODO get three random categories
+    // TODO make three different category design
+    // TODO list 5 jokes on each view
+    // TODO each joke should be represented on a card
+    // TODO make a button to list 5 more jokes
+    // TODO list all seen jokes below
+    // TODO collect already seen jokes into array and display them in a different section
+
+    // TODO responsive, clean, professional design, no bootstrap / uikit
   }
 
-  getThreeRandomCategories() {
-    console.log('getThreeRandomCategories')
-  }
-
-  getRandomNumber(min: number, max: number):number {
+  getRandomNumberRange(min: number, max: number):number {
     return Math.random() * (max - min) + min
   }
 }

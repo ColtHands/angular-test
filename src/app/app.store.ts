@@ -3,18 +3,20 @@ import { Observable } from 'rxjs';
 import { ComponentStore } from '@ngrx/component-store'
 
 export interface AppStateModel {
-    chuckApi: string
+    categories: Array<string>
 }
 
 @Injectable()
 export class AppStore extends ComponentStore<AppStateModel> {
-    // readonly chuckApi = this.select(({ chuckApi }) => chuckApi);
+    // readonly categories = this.select(({ categories }) => categories);
 
     // constructor() {
     //     super({
-    //         chuckApi: 'https://api.chucknorris.io'
+    //         categories: []
     //     })
     // }
 
     chuckApi = 'https://api.chucknorris.io'
+
+    get chuckApiCategoriesUrl() { return `${this.chuckApi}/jokes/categories`}
 }
