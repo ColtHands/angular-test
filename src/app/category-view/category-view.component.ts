@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'category-view',
+  selector: 'app-category-view',
   templateUrl: './category-view.component.html',
   styleUrls: ['./category-view.component.sass']
 })

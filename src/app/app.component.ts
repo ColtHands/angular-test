@@ -11,7 +11,7 @@ import { DataService } from './data.service'
 })
 export class AppComponent implements OnInit {
   chuckApi = this.appStore.chuckApi
-  categories = []
+  randomThreeCategories = []
 
   constructor(
     private appStore: AppStore,
@@ -20,7 +20,12 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     console.log('this.appStore.chuchApi3', this.appStore.chuckApi)
-    const categories = await this.dataService.getCategories()
+    const allCategories: any = await this.dataService.getCategories()
+    
+    this.randomThreeCategories = allCategories.sort(() => 0.5 - Math.random()).slice(0, 3)
+
+    console.log('randomThreeCategories', this.randomThreeCategories)
+    
     // TODO get three random categories
     // TODO make three different category design
     // TODO list 5 jokes on each view
@@ -30,9 +35,5 @@ export class AppComponent implements OnInit {
     // TODO collect already seen jokes into array and display them in a different section
 
     // TODO responsive, clean, professional design, no bootstrap / uikit
-  }
-
-  getRandomNumberRange(min: number, max: number):number {
-    return Math.random() * (max - min) + min
   }
 }
