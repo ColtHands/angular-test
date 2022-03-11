@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core'
 import { Store, State } from '@ngrx/store'
 import { AppStore } from './app.store'
-import { DataService } from './data.service'
+import { chuckAPI } from './chuckAPI.service'
 import { Observable } from 'rxjs';
 import { setCategories } from './app.store';
 
@@ -17,12 +17,12 @@ export class AppComponent implements OnInit {
 
   constructor(
     private appStore: AppStore,
-    private dataService: DataService,
+    private chuckAPI: chuckAPI,
     private store: Store<{ categories: any }>
   ) {}
   
   async ngOnInit() {
-    const allCategories: any = await this.dataService.getCategories()
+    const allCategories: any = await this.chuckAPI.getCategories()
     const randomThreeCategories = allCategories.sort(() => 0.5 - Math.random()).slice(0, 3)
     this.store.dispatch(setCategories({categories: randomThreeCategories}))
     

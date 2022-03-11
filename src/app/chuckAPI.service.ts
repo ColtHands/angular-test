@@ -5,7 +5,7 @@ import { AppStore } from './app.store'
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class chuckAPI {
   constructor(
     private http: HttpClient,
     private appStore: AppStore
@@ -13,5 +13,9 @@ export class DataService {
 
   getCategories() {
     return this.http.get(this.appStore.chuckApiCategoriesUrl).toPromise()
+  }
+
+  getJokeByCategory(category: string) {
+    return this.http.get(`${this.appStore.chuckApi}/jokes/random?category=${category}`).toPromise()
   }
 }

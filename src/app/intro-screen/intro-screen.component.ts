@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-intro-screen',
   templateUrl: './intro-screen.component.html',
   styleUrls: ['./intro-screen.component.sass']
 })
-export class IntroScreenComponent implements OnInit {
+export class IntroScreenComponent {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
+  redirectMain(){
+    this.router.navigate(['/'])
   }
-
 }

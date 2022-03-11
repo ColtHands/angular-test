@@ -10,9 +10,10 @@ import { AppComponent } from './app.component'
 import { IntroScreenComponent } from './intro-screen/intro-screen.component';
 import { CategoriesMenuComponent } from './categories-menu/categories-menu.component';
 import { CategoryComponent } from './categories-menu/category/category.component';
+import { CategoryViewComponent } from './category-view/category-view.component';
 
 const routes: Routes = [
-  { path: 'category-view', component: CategoryComponent }
+  { path: 'category-view/:category', component: CategoryViewComponent }
 ]
 
 @NgModule({
@@ -20,7 +21,8 @@ const routes: Routes = [
     AppComponent,
     IntroScreenComponent,
     CategoriesMenuComponent,
-    CategoryComponent
+    CategoryComponent,
+    CategoryViewComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ const routes: Routes = [
       categories: categoriesReducer
     }),
     HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [AppStore],
   bootstrap: [AppComponent]
