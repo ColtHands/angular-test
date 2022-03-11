@@ -1,28 +1,34 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { AppRoutingModule } from './app-routing.module'
 import { HttpClientModule } from '@angular/common/http'
-// import { StoreModule, createReducer } from '@ngrx/store'
-// import { EntityDataModule } from '@ngrx/data'
-// import { EffectsModule } from '@ngrx/effects'
-// import { createSelector } from '@ngrx/store'
+import { StoreModule } from '@ngrx/store';
+import { categoriesReducer } from './app.store';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppStore } from './app.store'
 import { AppComponent } from './app.component'
-import { CategoryViewComponent } from './category-view/category-view.component'
-import { CategoryComponent } from './category/category.component'
+import { IntroScreenComponent } from './intro-screen/intro-screen.component';
+import { CategoriesMenuComponent } from './categories-menu/categories-menu.component';
+import { CategoryComponent } from './categories-menu/category/category.component';
 
+const routes: Routes = [
+  { path: 'category-view', component: CategoryComponent }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryViewComponent,
+    IntroScreenComponent,
+    CategoriesMenuComponent,
     CategoryComponent
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({
+      count: categoriesReducer,
+      categories: categoriesReducer
+    }),
     HttpClientModule,
-    AppRoutingModule,
   ],
   providers: [AppStore],
   bootstrap: [AppComponent]
