@@ -10,13 +10,24 @@ import { chuckAPI } from './../chuckAPI.service'
 export class CategoryViewComponent {
   category: string = ''
   jokes: any = []
+  loading: boolean = false
 
   constructor(
     private route: ActivatedRoute,
     private chuckAPI: chuckAPI
   ) {
     route.params.subscribe(routeParams => {
-      this.category = routeParams['category']
+      this.loading = true
+      const category: any = routeParams['category']
+      this.category = category
+
+      Promise.all(new Array(5).fill(null).map(() => this.chuckAPI.getJokeByCategory(category))).then(jokes => {
+        this.jokes = jokes
+      }).catch(err => {
+        console.log('error', err)
+      }).finally(() => {
+        this.loading = false
+      })
     })
   }
 }

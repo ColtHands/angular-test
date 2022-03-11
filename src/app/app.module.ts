@@ -11,6 +11,7 @@ import { IntroScreenComponent } from './intro-screen/intro-screen.component';
 import { CategoriesMenuComponent } from './categories-menu/categories-menu.component';
 import { CategoryComponent } from './categories-menu/category/category.component';
 import { CategoryViewComponent } from './category-view/category-view.component';
+import { JokeComponent } from './category-view/joke/joke.component';
 
 const routes: Routes = [
   { path: 'category-view/:category', component: CategoryViewComponent }
@@ -22,7 +23,8 @@ const routes: Routes = [
     IntroScreenComponent,
     CategoriesMenuComponent,
     CategoryComponent,
-    CategoryViewComponent
+    CategoryViewComponent,
+    JokeComponent
   ],
   imports: [
     BrowserModule,

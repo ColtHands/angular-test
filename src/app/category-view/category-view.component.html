@@ -1,1 +1,8 @@
 <p>category-view works! {{category}}</p>
+<div>todays jokes are</div>
+<div>loading - {{loading}}</div>
+<ul>
+    <li *ngFor="let joke of jokes">
+        {{joke.value}}
+    </li>
+</ul>
