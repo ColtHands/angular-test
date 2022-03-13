@@ -5,13 +5,13 @@ import { createReducer, on } from '@ngrx/store';
 import { createAction, props } from '@ngrx/store'
 
 interface AppStoreModel {
-    categories: Array<string>
+  categories: Array<string>
 }
 
 @Injectable()
 export class AppStore extends ComponentStore<AppStoreModel> {
-    chuckApi = 'https://api.chucknorris.io'
-    get chuckApiCategoriesUrl() { return `${this.chuckApi}/jokes/categories`}
+  chuckApi = 'https://api.chucknorris.io'
+  get chuckApiCategoriesUrl() { return `${this.chuckApi}/jokes/categories`}
 }
 
 export const categories = [];
