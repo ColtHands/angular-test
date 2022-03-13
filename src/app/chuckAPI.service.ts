@@ -18,4 +18,8 @@ export class chuckAPI {
   getJokeByCategory(category: string) {
     return this.http.get(`${this.appStore.chuckApi}/jokes/random?category=${category}`).toPromise()
   }
+
+  getRandomJoke(){
+    return this.http.get(`${this.appStore.chuckApi}/jokes/random`).toPromise()
+  }
 }

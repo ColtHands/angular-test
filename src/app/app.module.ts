@@ -13,13 +13,11 @@ import { CategoriesMenuComponent } from './categories-menu/categories-menu.compo
 import { CategoryComponent } from './categories-menu/category/category.component'
 import { CategoryViewComponent } from './category-view/category-view.component'
 import { JokeComponent } from './category-view/joke/joke.component'
-import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component'
-import { MenuButtonComponent } from './ui/menu-button/menu-button.component'
 import { RandomJokeComponent } from './random-joke/random-joke.component'
 
 const routes: Routes = [
   { path: 'category-view/:category', component: CategoryViewComponent },
-  { path: '/', component: RandomJokeComponent }
+  { path: '', component: RandomJokeComponent }
 ]
 
 @NgModule({
@@ -30,8 +28,6 @@ const routes: Routes = [
     CategoryComponent,
     CategoryViewComponent,
     JokeComponent,
-    LoadingSpinnerComponent,
-    MenuButtonComponent,
     RandomJokeComponent
   ],
   imports: [
