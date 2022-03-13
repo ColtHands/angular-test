@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
 import { StoreModule } from '@ngrx/store'
-import { categoriesReducer } from './app.store'
+import { categoriesReducer, previousJokesReducer } from './app.store'
 import { Routes, RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -34,7 +34,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      categories: categoriesReducer
+      categories: categoriesReducer,
+      previousJokes: previousJokesReducer
     }),
     BrowserAnimationsModule,
     HttpClientModule,

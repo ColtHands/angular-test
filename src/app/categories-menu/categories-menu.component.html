@@ -1,3 +1,4 @@
 <div class="categories">
+    <app-category [category]="'previous-jokes'"></app-category>
     <app-category *ngFor="let category of categories | async" [category]="category"></app-category>
 </div>

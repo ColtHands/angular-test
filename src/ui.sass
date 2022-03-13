@@ -1,0 +1,10 @@
+$blue: #4600DC
+$hover-blue: lighten($blue, 30%)
+$pd: 20px
+
+@mixin grid($n)
+    width: calc(((99% / 4) * #{$n}) - #{$pd*2})
+    display: inline-block
+    vertical-align: top
+    margin: 0 auto
+    padding: 20px

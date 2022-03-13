@@ -1,12 +1,22 @@
-<img
-    *ngIf="loading"
-    src="/assets/loader.svg"
-    alt="loader"
-    class="loader"
-/>
+<div class="category-view">
+    <img
+        *ngIf="loading"
+        src="/assets/loader.svg"
+        alt="loader"
+        class="loader"
+    />
+    
+    <h3 *ngIf="error">Error loading jokes content.</h3>
 
-<h3 *ngIf="error">Error loading jokes content.</h3>
+    <ul class="jokes" *ngIf="category == 'previous-jokes'" @fadeIn>
+        <li *ngFor="let joke of previousJokes | async">
+            <app-joke [category]="category">{{joke.value}}</app-joke>
+        </li>
+    </ul >
 
-<ul class="jokes" *ngIf="!loading">
-    <app-joke *ngFor="let joke of jokes" [joke]="joke"></app-joke>
-</ul>
+    <ul class="jokes" *ngIf="!loading && jokes.length" @fadeIn>
+        <li *ngFor="let joke of jokes">
+            <app-joke [category]="category">{{joke.value}}</app-joke>
+        </li>
+    </ul>
+</div>

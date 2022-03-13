@@ -1,18 +1,21 @@
-$bgc: lightseagreen
+@use './../../../ui.sass'
 
 .category
     text-transform: capitalize
     cursor: pointer
     border-radius: 2px
-    background-color: lighten($bgc, 45%)
-    border: 1px solid lighten($bgc, 25%)
-    padding: 10px 30px
+    padding: 0
+    margin-bottom: 10px
     transition: all 0.15s linear
-    color: #333
-    text-decoration: none
+    color: ui.$blue
+    font-weight: bold
     display: block
-    &:hover
-        background-color: lighten($bgc, 10%)
+    font-size: 48px
+    &:hover, &.active
+        color: ui.$hover-blue
     &.active
-        background-color: lighten($bgc, 10%)
         cursor: default
+    &__previous-jokes
+        color: gray
+        &:hover, &.active
+            color: lightgray
