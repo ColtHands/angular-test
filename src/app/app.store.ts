@@ -21,6 +21,6 @@ export const setCategories = createAction('SET_CATEGORIES', props<{categories: s
 export function categoriesReducer(state: any, action: any) {
   return createReducer(
     categories,
-    on(setCategories, (state, payload: any) => { console.log('asd', state, payload); return state = payload.categories })
+    on(setCategories, (state, payload: any) => state = payload.categories)
   )(state, action)
 }

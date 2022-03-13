@@ -1,7 +1,12 @@
-<p>category-view works! {{category}}</p>
-<div>todays jokes are</div>
-<div>loading - {{loading}}</div>
+<img
+    *ngIf="loading"
+    src="/assets/loader.svg"
+    alt="loader"
+    class="loader"
+/>
 
-<ul>
+<h3 *ngIf="error">Error loading jokes content.</h3>
+
+<ul class="jokes" *ngIf="!loading">
     <app-joke *ngFor="let joke of jokes" [joke]="joke"></app-joke>
 </ul>
